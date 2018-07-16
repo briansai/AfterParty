@@ -28,7 +28,7 @@ class Search extends React.Component {
         />
         <button
           className="search-button"
-          onClick={() => (this.props.fetchInformation('getBusinessList', this.state.qs))}
+          onClick={() => (this.props.fetchInformation('getBusinessList', {location: this.state.qs}))}
         >
           Search
         </button>

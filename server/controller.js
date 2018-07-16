@@ -25,7 +25,6 @@ const options = {
   qs: {
     location: '',
     categories: "bars",
-    term: null,
     limit: 50,
   }
 }

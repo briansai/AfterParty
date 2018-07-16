@@ -17,10 +17,8 @@ class App extends React.Component {
     }
 
     this.fetchInformation = this.fetchInformation.bind(this);
-    // this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
-    // this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {

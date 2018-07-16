@@ -16,39 +16,27 @@ class App extends React.Component {
       userInfo: [],
     }
 
-    this.getBusinessList = this.getBusinessList.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
+    this.fetchInformation = this.fetchInformation.bind(this);
+    // this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
+    // this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
-    this.getBusinessList('San Francisco')
+    this.fetchInformation('getBusinessList', {location: 'San Francisco'})
   }
 
-  getBusinessList(businessSearch) {
-    axios.get('/getBusinessList', {
-      params: {
-        param: businessSearch
-      },
-    })
-    .then((response) => {
-      this.setState({
-        businessList: JSON.parse(response.data.body).businesses,
-      })
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-  }
-
-  handleLogin(information) {
-    axios.get('/loginInfo', {
+  fetchInformation(url, information) {
+    axios.get(`/${url}`, {
       params: information
     })
     .then((response) => {
-      if (response) {
+      if (url === 'getBusinessList') {
+        this.setState({
+          businessList: JSON.parse(response.data.body).businesses,
+        })
+      } else if (url === 'loginInfo') {
         this.setState({
           login: true,
           userInfo: response.data[0]
@@ -56,11 +44,34 @@ class App extends React.Component {
       }
     })
     .catch((error) => {
-      this.setState({
-        loginMessage: 'The email/password you provided was incorrect.  Please try again.',
-      })
+      if (url === 'loginInfo') {
+        this.setState({
+          loginMessage: 'The email/password you provided was incorrect.  Please try again.',
+        })
+      } else {
+        console.log(error);
+      }
     })
   }
+
+  // handleLogin(information) {
+  //   axios.get('/loginInfo', {
+  //     params: information
+  //   })
+  //   .then((response) => {
+  //     if (response) {
+  //       this.setState({
+  //         login: true,
+  //         userInfo: response.data[0]
+  //       })
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     this.setState({
+  //       loginMessage: 'The email/password you provided was incorrect.  Please try again.',
+  //     })
+  //   })
+  // }
 
   handleSignUp(information) {
     axios.post('/saveLogin', {
@@ -92,16 +103,12 @@ class App extends React.Component {
     })
   }
 
-  handleSearch(query) {
-    this.getBusinessList(query);
-  }
-
   render() {
     return (
       <div>
         {!this.state.login ? (
           <HomePage
-            handleLogin={this.handleLogin}
+            fetchInformation={this.fetchInformation}
             handleSignUp={this.handleSignUp}
             loginMessage={this.state.loginMessage}
             signUpMessage={this.state.signUpMessage}
@@ -110,7 +117,7 @@ class App extends React.Component {
           <UserPage
             businessList={this.state.businessList}
             userInfo={this.state.userInfo}
-            handleSearch={this.handleSearch}
+            fetchInformation={this.fetchInformation}
             handleLogout={this.handleLogout}
           />
         )}

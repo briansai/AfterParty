@@ -11,7 +11,7 @@ const HomePage = props => {
         <SignUp handleSignUp={props.handleSignUp} signUpMessage={props.signUpMessage} />
       </span>
       <span className="home-page-component">
-        <Login handleLogin={props.handleLogin} loginMessage={props.loginMessage} />
+        <Login fetchInformation={props.fetchInformation} loginMessage={props.loginMessage} />
       </span>
     </div>
   )
@@ -20,7 +20,7 @@ const HomePage = props => {
 HomePage.propTypes = {
   handleSignUp: PropTypes.func.isRequired,
   signUpMessage: PropTypes.string.isRequired,
-  handleLogin: PropTypes.func.isRequired,
+  fetchInformation: PropTypes.func.isRequired,
   loginMessage: PropTypes.string.isRequired
 }
 

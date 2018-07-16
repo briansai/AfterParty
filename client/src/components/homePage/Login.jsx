@@ -32,7 +32,7 @@ class Login extends React.Component {
       password: this.state.password
     }
     
-    this.props.handleLogin(information);
+    this.props.fetchInformation('loginInfo', information);
     event.preventDefault();
   }
 
@@ -61,7 +61,7 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  handleLogin: PropTypes.func.isRequired,
+  fetchInformation: PropTypes.func.isRequired,
   loginMessage: PropTypes.string.isRequired
 }
 

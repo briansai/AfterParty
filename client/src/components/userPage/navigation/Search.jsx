@@ -28,7 +28,7 @@ class Search extends React.Component {
         />
         <button
           className="search-button"
-          onClick={() => (this.props.handleSearch(this.state.qs))}
+          onClick={() => (this.props.fetchInformation('getBusinessList', this.state.qs))}
         >
           Search
         </button>
@@ -39,7 +39,7 @@ class Search extends React.Component {
 
 
 Search.propTypes = {
-  handleSearch: PropTypes.func.isRequired,
+  fetchInformation: PropTypes.func.isRequired,
 }
 
 export default Search;

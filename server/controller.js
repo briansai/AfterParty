@@ -31,7 +31,7 @@ const options = {
 }
 
 app.get('/getBusinessList', (req, res) => {
-  options.qs.location = req.query.param;
+  options.qs.location = req.query.location;
   request(options, (err, response) => {
     if (err) {
       return res.status(404).send(err);

@@ -11,7 +11,7 @@ const Navigation = props => {
         <Logo />
       </span>
       <span id="search" className="nav">
-        <Search handleSearch={props.handleSearch} />
+        <Search fetchInformation={props.fetchInformation} />
       </span>
       <span id="logout" className="nav">
         <Logout handleLogout={props.handleLogout} />
@@ -21,7 +21,7 @@ const Navigation = props => {
 }
 
 Navigation.propTypes = {
-  handleSearch: PropTypes.func.isRequired,
+  fetchInformation: PropTypes.func.isRequired,
   handleLogout: PropTypes.func.isRequired
 }
 

@@ -13,7 +13,7 @@ const UserPage = (props) => {
       <div className="top-container">
         <div id="navigation">
           <Navigation
-            handleSearch={props.handleSearch}
+            fetchInformation={props.fetchInformation}
             handleLogout={props.handleLogout}
           />
         </div>
@@ -43,7 +43,7 @@ const UserPage = (props) => {
 
 UserPage.propTypes = {
   businessList: PropTypes.array.isRequired,
-  handleSearch: PropTypes.func.isRequired,
+  fetchInformation: PropTypes.func.isRequired,
   handleLogout: PropTypes.func.isRequired
 }
 

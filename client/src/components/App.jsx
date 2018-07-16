@@ -54,25 +54,6 @@ class App extends React.Component {
     })
   }
 
-  // handleLogin(information) {
-  //   axios.get('/loginInfo', {
-  //     params: information
-  //   })
-  //   .then((response) => {
-  //     if (response) {
-  //       this.setState({
-  //         login: true,
-  //         userInfo: response.data[0]
-  //       })
-  //     }
-  //   })
-  //   .catch((error) => {
-  //     this.setState({
-  //       loginMessage: 'The email/password you provided was incorrect.  Please try again.',
-  //     })
-  //   })
-  // }
-
   handleSignUp(information) {
     axios.post('/saveLogin', {
       params: information

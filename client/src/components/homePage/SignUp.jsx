@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-
+import Button from '@material-ui/core/Button';
+// import ButtonTheme from '../../../themes/ButtonTheme.jsx';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -41,29 +41,32 @@ class SignUp extends React.Component {
   }
 
   render() {
+
     return (
       <div className="home-page">
         <form>
           <label>
             First Name:
+            <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleInputValues} className="home-page-input"/>
           </label>
-          <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleInputValues}/>
           <label>
             Last Name:
+            <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleInputValues} className="home-page-input"/>
           </label>
-          <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleInputValues}/>
           <label>
             Email:
+            <input type="text" name="email" value={this.state.email} onChange={this.handleInputValues} className="home-page-input"/>
           </label>
-          <input type="text" name="email" value={this.state.email} onChange={this.handleInputValues}/>
           <label>
-            password:
+            Password:
+            <input type="text" name="password" value={this.state.password} onChange={this.handleInputValues} className="home-page-input"/>
           </label>
-          <input type="text" name="password" value={this.state.password} onChange={this.handleInputValues}/>
         </form>
-        <button onClick={this.handleSave}>
-          Save
-        </button>
+        <div className="button">
+          <Button onClick={this.handleSave} variant="contained" color="primary">
+            Save
+          </Button>
+        </div>
         <div>
           {this.props.signUpMessage}
         </div>

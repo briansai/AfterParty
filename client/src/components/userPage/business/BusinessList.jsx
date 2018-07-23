@@ -1,15 +1,15 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import BusinessEntry from './BusinessEntry.jsx';
 import PropTypes from 'prop-types';
 
 
 const BusinessList = props => {
   return (
-    <div>
+    <Fragment>
       {props.businessList.map((business, index) => (
         <BusinessEntry business={business} key={`${business.alias}_${index}`} />
       ))}
-    </div>
+    </Fragment>
   )
 }
 

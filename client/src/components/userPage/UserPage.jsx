@@ -1,8 +1,8 @@
 import React from 'react';
 import Navigation from './navigation/Navigation.jsx';
-import BusinessList from '../business/BusinessList.jsx';
+import BusinessList from './business/BusinessList.jsx';
 import UserInfo from './userInfo/UserInfo.jsx';
-import ChatterBox from '../chatbox/Chatbox.jsx';
+import ChatterBox from './chatbox/Chatbox.jsx';
 import PropTypes from 'prop-types';
 
 const UserPage = (props) => {

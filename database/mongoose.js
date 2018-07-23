@@ -30,7 +30,9 @@ const loginSchema = new mongoose.Schema({
   password: {
     type: 'string',
     required: true
-  }
+  }, 
+  avatar: 'string',
+  description: 'string',
 });
 
 const Login = mongoose.model('Login', loginSchema);

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Button from '@material-ui/core/Button';
 
 class Login extends React.Component {
   constructor(props) {
@@ -32,26 +32,28 @@ class Login extends React.Component {
       password: this.state.password
     }
     
-    this.props.fetchInformation('loginInfo', information);
+    this.props.fetchInformation('userInfo', information);
     event.preventDefault();
   }
 
   render() {
     return (
-      <div>
-        <form className="home-page">
+      <div className="home-page">
+        <form>
           <label>
             Email:
+            <input type="text" name="email" value={this.state.email} onChange={this.handleInputValues} className="home-page-input"/>
           </label>
-          <input type="text" name="email" value={this.state.email} onChange={this.handleInputValues}/>
           <label>
-            password:
+            Password:
+            <input type="text" name="password" value={this.state.password} onChange={this.handleInputValues} className="home-page-input"/>
           </label>
-          <input type="text" name="password" value={this.state.password} onChange={this.handleInputValues}/>
         </form>
-        <button onClick={this.handleSubmit}>
-          Login
-        </button>
+        <div className="button">
+          <Button variant="contained" color="primary" onClick={this.handleSubmit}>
+            Login
+          </Button>
+        </div>
         <div className="login-message">
           {this.props.loginMessage}
         </div>

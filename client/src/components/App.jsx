@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import axios from 'axios';
 import HomePage from './homePage/HomePage.jsx';
 import UserPage from './userPage/UserPage.jsx';
@@ -34,7 +34,7 @@ class App extends React.Component {
         this.setState({
           businessList: JSON.parse(response.data.body).businesses,
         })
-      } else if (url === 'loginInfo') {
+      } else if (url === 'userInfo') {
         this.setState({
           login: true,
           userInfo: response.data[0]
@@ -42,7 +42,7 @@ class App extends React.Component {
       }
     })
     .catch((error) => {
-      if (url === 'loginInfo') {
+      if (url === 'userInfo') {
         this.setState({
           loginMessage: 'The email/password you provided was incorrect.  Please try again.',
         })
@@ -84,7 +84,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         {!this.state.login ? (
           <HomePage
             fetchInformation={this.fetchInformation}
@@ -100,7 +100,7 @@ class App extends React.Component {
             handleLogout={this.handleLogout}
           />
         )}
-      </div>
+      </Fragment>
     );
   }
 }

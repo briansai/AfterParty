@@ -1,15 +1,15 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 const MessageBox = () => {
   return (
-    <div>
+    <Fragment>
       <span className="user">
         USER PLACEHOLDER
       </span>
       <span className="message">
         MESSAGE PLACEHOLDER
       </span>
-    </div>
+    </Fragment>
   )
 }
 

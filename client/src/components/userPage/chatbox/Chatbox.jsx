@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import MessageBox from './MessageBox.jsx';
 import TextBox from './TextBox.jsx';
 
 const ChatterBox = (props) => {
   return (
-    <div>
+    <Fragment>
       <div>
         Chatbox Placeholder
       </div>
@@ -14,7 +14,7 @@ const ChatterBox = (props) => {
       <div id="text-box">
         <TextBox />
       </div>
-    </div>
+    </Fragment>
   )
 }
 

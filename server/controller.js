@@ -40,15 +40,20 @@ app.get('/getBusinessList', (req, res) => {
   })
 })
 
-app.get('/loginInfo', (req, res) => {
-  db.login(req.query, (err, result) => {
-    if (err || result.length === 0) {
-      return res.status(404).send(err);
-    }
-
-    res.status(200).send(result);
+app.route('/userInfo')
+  .get((req, res) => {
+    db.userInfo(req.query, (err, result) => {
+      if (err || result.length === 0) {
+        return res.status(404).send(err);
+      }
+  
+      res.status(200).send(result);
+    })
   })
-})
+  // .put((req,res) => {
+  //   db.
+  // })
+
 
 app.post('/saveLogin', (req, res) => {
   db.add(req.body.params, (err, result) => {

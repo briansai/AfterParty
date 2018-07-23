@@ -1,7 +1,7 @@
 const Login = require('../database/mongoose.js');
 
 module.exports = {
-  login: (params, callback) => {
+  userInfo: (params, callback) => {
     Login.find({ email: params.email, password: params.password}, (err, result) => {
       if (err) {
         callback(err, null)

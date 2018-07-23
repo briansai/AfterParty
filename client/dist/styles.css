@@ -109,21 +109,26 @@
 .home-page {
   box-sizing: border-box;
   border: solid;
-  width: 400px;
+  width: 350px;
   height: 300px;
   margin: 0 auto;
 }
 
 .home-page-component {
-  flex-direction: row;
-  float: left;
   margin: 50px;
 } 
 
 .home-page-container {
   box-sizing: border-box;
   display: inline;
-  margin: 0 30px;
+  display: flex;
+  flex-direction: row;
+  margin: 15% 25%;
+}
+
+.home-page-input {
+  width: 200px;
+  float: right;
 }
 
 .login-message {
@@ -170,6 +175,10 @@
   display: inline-block;
 }
 
+.button {
+  margin: 20px;
+}
+
 .search-bar {
   flex-grow: 1;
   width: 100%;
@@ -182,6 +191,7 @@
 }
 
 /* element */
-input {
-  width: 300px;
+label {
+  margin: 20px;
+  display: block;
 }

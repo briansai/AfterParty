@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 class TextBox extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class TextBox extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <form>
           <label>
             <input type="text" name="textBox" value="" onChange={this.handleTextChange}/>
@@ -28,7 +28,7 @@ class TextBox extends React.Component {
         <button>
           Send
         </button>
-      </div>
+      </Fragment>
     )
   }
 }

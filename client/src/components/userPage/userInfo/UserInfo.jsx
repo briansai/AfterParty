@@ -21,19 +21,20 @@ class UserInfo extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="user-info">
         <div className="edit">
-          <ModalWrapped handleEditClick={this.handleEditClick}/>
+          <ModalWrapped handleEditClick={this.handleEditClick} userInfo={this.props.userInfo}/>
         </div>
         <div className="user-photo">
-          PHOTO PLACEHOLDER
+          {this.props.userInfo.avatar}
         </div>
         <div className="user-name">
           {`${this.props.userInfo.firstName} ${this.props.userInfo.lastName}`}
         </div>
         <div className="user-description">
-          DESCRIPTION PLACEHOLDER
+          {this.props.userInfo.description}
         </div>
         <div className="friends-list">
           FRIENDS PLACEHOLDER 

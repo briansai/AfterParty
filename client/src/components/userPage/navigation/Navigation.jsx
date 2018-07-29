@@ -6,17 +6,24 @@ import PropTypes from 'prop-types';
 
 const Navigation = props => {
   return (
-    <div>
-      <span id="logo" className="nav">
+    <ul>
+      <li 
+      // id="logo" className="nav"
+      >
         <Logo />
-      </span>
-      <span id="search" className="nav">
+      </li>
+      <li 
+      // id="search" 
+      // className="nav"
+      >
         <Search fetchInformation={props.fetchInformation} />
-      </span>
-      <span id="logout" className="nav">
+      </li>
+      <li 
+      // id="logout" className="nav"
+      >
         <Logout handleLogout={props.handleLogout} />
-      </span>
-    </div>
+      </li>
+    </ul>
   )
 }
 

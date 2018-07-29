@@ -6,10 +6,10 @@ class UserEdit extends React.Component {
     super(props);
 
     this.state = {
-      firstName: this.props.firstName || '',
-      lastName: this.props.lastName || '',
-      avatar: this.props.avatar || '',
-      description: this.props.description || '',
+      firstName: '',
+      lastName: '',
+      avatar: '',
+      description: '',
     }
   
     this.handleEdit = this.handleEdit.bind(this);
@@ -26,24 +26,26 @@ class UserEdit extends React.Component {
   }
 
   render() {
+    const userInfo = this.props.userInfo;
+
     return (
       <Fragment>
         <form>
           <label>
             First Name: 
-            <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleEdit}/>
+            <input type="text" name="firstName" value={userInfo.firstName} onChange={this.handleEdit}/>
           </label>
           <label>
             Last Name: 
-            <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleEdit}/>
+            <input type="text" name="lastName" value={userInfo.lastName} onChange={this.handleEdit}/>
           </label>
           <label>
             Avatar: 
-            <input type="text" name="avatar" value={this.state.avatar} onChange={this.handleEdit} />
+            <input type="text" name="avatar" value={userInfo.avatar} onChange={this.handleEdit} />
           </label>
           <label>
             Description:
-            <input type="text" name="description" value={this.state.description} onChange={this.handleEdit} />
+            <input type="text" name="description" value={userInfo.description} onChange={this.handleEdit} />
           </label>
         </form>
         <Button variant="contained" color="primary">

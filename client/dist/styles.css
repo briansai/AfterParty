@@ -16,11 +16,14 @@
  
 #chatbox {
   box-sizing: border-box;
-  border: solid;
   float: left;
-  height: 500px;
+  height: 600px;
   margin: 50px 20px;
   width: 300px;
+  border: 1px solid #ddd;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+  border-radius: 2px;
+  max-width: 600px;
 } 
 
 #login {
@@ -40,10 +43,8 @@
 
 }
 
-#messageBox {
-  box-sizing: border-box;
-  width: 290px;
-  height: 300px;
+#main {
+  font-family: 'Nunito';
 }
 
 #navigation {
@@ -53,15 +54,10 @@
 
 #search {
   box-sizing: border-box;
-  border: solid;
+  border: none;
   text-align: center;
-  word-wrap: break-word;
-  margin: 0 80px;
-}
-
-#text-box {
-  width: 290px;
-  height: 200px;
+  /* word-wrap: break-word; */
+  /* margin: 0 80px; */
 }
 
 #user-info {
@@ -147,13 +143,14 @@
 
 .mid-container {
   box-sizing: border-box;
-  border: solid;
+  /* border: solid; */
 }
 
 .nav {
   border: solid;
   box-sizing: border-box;
-  margin: 50px 70px;
+  /* margin: 50px 70px; */
+  margin: 90%;
   flex-direction: row;
   text-align: center;
 }
@@ -178,6 +175,11 @@
 .button {
   margin: 20px;
 }
+/* 
+.chatroom-text-input {
+  height: 175px;
+  width: 250px;
+} */
 
 .search-bar {
   flex-grow: 1;
@@ -194,4 +196,79 @@
 label {
   margin: 20px;
   display: block;
+}
+
+li {
+  display: inline;
+  margin: 11%;
+}
+
+
+/* CHAT BOX*/
+
+h2{
+  font-size: 18px;
+  padding: 10px 20px;
+  color: #575ed8;
+}
+/* 
+#chat-box{
+  max-width: 600px;
+  margin: 50px 50px;
+  float:right;
+  border: 1px solid #ddd;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+  border-radius: 2px;
+} */
+
+#chat-window{
+  height: 400px;
+  overflow: auto;
+  background: #f9f9f9;
+  width: 99%;
+}
+
+#output p{
+  padding: 14px 0px;
+  margin: 0 20px;
+  border-bottom: 1px solid #e9e9e9;
+  color: #555;
+}
+
+#feedback p{
+  color: #aaa;
+  padding: 14px 0px;
+  margin: 0 20px;
+}
+
+#output strong{
+  color: #575ed8;
+}
+/* 
+label{
+  box-sizing: border-box;
+  display: block;
+  padding: 10px 20px;
+} */
+
+.chat-input{
+  padding: 10px 20px;
+  box-sizing: border-box;
+  background: #eee;
+  border: 0;
+  display: block;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+#chat-send{
+  background: #575ed8;
+  color: #fff;
+  font-size: 18px;
+  border: 0;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 0 0 2px 2px;
 }

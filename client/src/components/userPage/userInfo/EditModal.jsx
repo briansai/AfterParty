@@ -61,7 +61,7 @@ class EditModal extends React.Component {
         >
           <div style={getModalStyle()} className={classes.paper}>
             <Typography variant="subheading" id="modal-description">
-              <UserEdit />
+              <UserEdit userInfo={this.props.userInfo}/>
             </Typography>
             {/* <ModalWrapped /> */}
           </div>

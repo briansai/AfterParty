@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const socket = require('socket.io');
 const request = require('request');
 const db = require('./model.js');
 const YelpKey = require('../YelpAuthentication.js');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,7 +41,7 @@ app.get('/getBusinessList', (req, res) => {
   })
 })
 
-app.route('/userInfo')
+app.route('/userInfo')  
   .get((req, res) => {
     db.userInfo(req.query, (err, result) => {
       if (err || result.length === 0) {
@@ -50,25 +51,36 @@ app.route('/userInfo')
       res.status(200).send(result);
     })
   })
-  // .put((req,res) => {
-  //   db.
-  // })
+  .post((req, res) => {
+    db.add(req.body.params, (err, result) => {
+      let statusCode = 500;
+      if (err) {
+        if (err.code === 11000) {
+          statusCode = 409;
+        }
 
-
-app.post('/saveLogin', (req, res) => {
-  db.add(req.body.params, (err, result) => {
-    let statusCode = 500;
-    if (err) {
-      if (err.code === 11000) {
-        statusCode = 409;
+        return res.status(statusCode).send(err);
       }
-      return res.status(statusCode).send(err);
-    }
 
-    res.status(201).send(result);
+      res.status(201).send(result);
+    })
   })
-})
 
-app.listen(PORT, () => {
-  console.log('Listening on PORT: ', PORT);
-});
+  //socket.io
+
+  const server = app.listen(PORT, () => {
+    console.log('Listening to port:', PORT);
+  })
+  
+  const io = socket(server);
+  
+  io.sockets.on('connection', (socket) => {
+  
+    socket.on('chat', function(data){
+      console.log(data);
+      io.sockets.emit('chat', data);
+    });
+  
+    console.log('made socket connection', socket.id);
+  
+  });

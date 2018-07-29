@@ -31,9 +31,11 @@ class SignUp extends React.Component {
   handleSave() {
     const information = {
       firstName: this.state.firstName,
-      lastName: this.state.firstName,
+      lastName: this.state.lastName,
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      avatar: '',
+      description: '',
     }
 
     this.props.handleSignUp(information);

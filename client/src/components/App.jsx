@@ -53,26 +53,25 @@ class App extends React.Component {
   }
 
   handleSignUp(information) {
-    axios.post('/saveLogin', {
+    axios.post('/userInfo', {
       params: information
     })
     .then((response) => {
-      if (response) {
-        this.setState({
-          login: true
-        })
-      }
+      this.setState({
+        login: true,
+        userInfo: response.data
+      })
     })
     .catch((error) => {
       if (error.code === 11000) {
         this.setState({
           signUpMessage: 'The email you provided is already in use.  Please try another one.',
         })
+      } else {
+        this.setState({
+          signUpMessage: 'Something went wrong.  We apologize for the inconvenience',
+        })
       }
-
-      this.setState({
-        signUpMessage: 'Something went wrong.  We apologize for the inconvenience',
-      })
     })
   }
 
@@ -84,7 +83,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <div id="main">
         {!this.state.login ? (
           <HomePage
             fetchInformation={this.fetchInformation}
@@ -100,7 +99,7 @@ class App extends React.Component {
             handleLogout={this.handleLogout}
           />
         )}
-      </Fragment>
+      </div>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Button from '@material-ui/core/Button';
+import GreenButton from '../../../materialUI/GreenButton.jsx';
 
 class UserEdit extends React.Component {
   constructor(props) {
@@ -12,10 +12,10 @@ class UserEdit extends React.Component {
       description: '',
     }
   
-    this.handleEdit = this.handleEdit.bind(this);
+    this.handleEditInput = this.handleEditInput.bind(this);
   }
 
-  handleEdit(event) {
+  handleEditInput(event) {
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -33,24 +33,46 @@ class UserEdit extends React.Component {
         <form>
           <label>
             First Name: 
-            <input type="text" name="firstName" value={userInfo.firstName} onChange={this.handleEdit}/>
+            <input
+              type="text"
+              name="firstName"
+              value={userInfo.firstName}
+              onChange={this.handleEditInput}
+            />
           </label>
           <label>
             Last Name: 
-            <input type="text" name="lastName" value={userInfo.lastName} onChange={this.handleEdit}/>
+            <input
+              type="text"
+              name="lastName"
+              value={userInfo.lastName}
+              onChange={this.handleEditInput}
+            />
           </label>
           <label>
             Avatar: 
-            <input type="text" name="avatar" value={userInfo.avatar} onChange={this.handleEdit} />
+            <input
+              type="text"
+              name="avatar"
+              value={userInfo.avatar}
+              onChange={this.handleEditInput}
+            />
           </label>
           <label>
             Description:
-            <input type="text" name="description" value={userInfo.description} onChange={this.handleEdit} />
+            <input
+              type="text"
+              name="description"
+              value={userInfo.description}
+              onChange={this.handleEditInput}
+            />
           </label>
         </form>
-        <Button variant="contained" color="primary">
-          Edit
-        </Button>
+        <GreenButton
+          variant="contained"
+          color="primary"
+
+        />
       </Fragment>
     )
   }

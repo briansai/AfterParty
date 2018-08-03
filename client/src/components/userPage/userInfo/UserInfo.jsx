@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 // import PropTypes from 'prop-types';
-// import UserEdit from './UserEdit.jsx';
-import ModalWrapped from './EditModal.jsx';
+import UserEditModal from './UserEditModal.jsx';
 
 class UserInfo extends React.Component {
   constructor(props) {
@@ -21,25 +20,28 @@ class UserInfo extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
-      <div className="user-info">
-        <div className="edit">
-          <ModalWrapped handleEditClick={this.handleEditClick} userInfo={this.props.userInfo}/>
+      <span className="mid-components">
+        <div className="user-edit-modal">
+          <UserEditModal handleEditClick={this.handleEditClick} userInfo={this.props.userInfo}/>
         </div>
-        <div className="user-photo">
-          {this.props.userInfo.avatar}
+        <div className="user-photo" className="user-component">
+          {this.props.userInfo.avatar === undefined ? (
+            <img src="https://i.gifer.com/A4wD.gif" width="150" height="150" alt="Your Default"/>
+          ) : (
+            <img src={this.props.userInfo.avatar} width="150" height="150" alt="Your Picture"/>
+          )} 
         </div>
-        <div className="user-name">
-          {`${this.props.userInfo.firstName} ${this.props.userInfo.lastName}`}
+        <div className="user-name" className="user-component">
+          <b>{`${this.props.userInfo.firstName} ${this.props.userInfo.lastName}`}</b>
         </div>
-        <div className="user-description">
+        <div className="user-description" className="user-component">
           {this.props.userInfo.description}
         </div>
-        <div className="friends-list">
+        <div className="friends-list" className="user-component">
           FRIENDS PLACEHOLDER 
         </div>
-      </div>
+      </span>
     )
   }
 }

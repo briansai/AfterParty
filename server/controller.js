@@ -75,12 +75,14 @@ app.route('/userInfo')
   const io = socket(server);
   
   io.sockets.on('connection', (socket) => {
-  
-    socket.on('chat', function(data){
-      console.log(data);
-      io.sockets.emit('chat', data);
+
+    socket.on('server_message', function(data){
+      io.sockets.emit('client_message', data);
     });
   
     console.log('made socket connection', socket.id);
-  
+  });
+
+  io.sockets.on('disconnect', function (socket) {
+    socket.emit('user disconnected');
   });

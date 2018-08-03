@@ -19,9 +19,9 @@ class Search extends React.Component {
    
   render() {
     return (
-      <span className="search-bar">
+      <span className="search">
         <input
-          className="input"
+          className="search-bar"
           type="text"
           placeholder="search a city"
           onChange={(e) => this.handleQuery(e)}

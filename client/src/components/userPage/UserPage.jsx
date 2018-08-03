@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Navigation from './navigation/Navigation.jsx';
 import BusinessList from './business/BusinessList.jsx';
 import UserInfo from './userInfo/UserInfo.jsx';
@@ -9,7 +9,7 @@ const UserPage = (props) => {
   const list = props.businessList;
 
   return (
-    <div>
+    <Fragment>
       <div className="top-container">
         <div id="navigation">
           <Navigation
@@ -19,24 +19,24 @@ const UserPage = (props) => {
         </div>
       </div>
       <div>
-        <div className="mid-container">
-          <div id="user-info">
+        <div className="middle-container">
+          <span id="user-info">
             <UserInfo userInfo={props.userInfo} />
-          </div>
-          <div id="business-list">
+          </span>
+          <span id="business-list">
             {list === null ? (
               <div>
               </div>
             ) : (
               <BusinessList businessList={list} />
             )}
-          </div>
-          <div id="chatbox">
-            <ChatterBox />
-          </div>
+          </span>
+          <span id="chatbox">
+            <ChatterBox handle={props.userInfo.handle}/>
+          </span>
         </div>
       </div>
-    </div>
+    </Fragment>
   )
 }
 

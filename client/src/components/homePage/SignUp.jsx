@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-// import ButtonTheme from '../../../themes/ButtonTheme.jsx';
+import GreenButton from '../../materialUI/GreenButton.jsx';
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -10,12 +9,13 @@ class SignUp extends React.Component {
     this.state = {
       firstName: '',
       lastName: '',
+      handle: '',
       email: '',
       password: '',  
     }
 
     this.handleInputValues = this.handleInputValues.bind(this);
-    this.handleSave = this.handleSave.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInputValues(event) {
@@ -28,14 +28,13 @@ class SignUp extends React.Component {
     });
   }
 
-  handleSave() {
+  handleSubmit() {
     const information = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
+      handle: this.state.handle,
       email: this.state.email,
       password: this.state.password,
-      avatar: '',
-      description: '',
     }
 
     this.props.handleSignUp(information);
@@ -43,31 +42,65 @@ class SignUp extends React.Component {
   }
 
   render() {
-
     return (
       <div className="home-page">
         <form>
           <label>
             First Name:
-            <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleInputValues} className="home-page-input"/>
+            <input
+              type="text"
+              name="firstName"
+              value={this.state.firstName}
+              onChange={this.handleInputValues}
+              className="home-page-input"
+            />
           </label>
           <label>
             Last Name:
-            <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleInputValues} className="home-page-input"/>
+            <input
+              type="text"
+              name="lastName"
+              value={this.state.lastName}
+              onChange={this.handleInputValues}
+              className="home-page-input"
+            />
+          </label>
+          <label>
+            Username:
+            <input
+              type="text"
+              name="handle"
+              value={this.state.handle}
+              onChange={this.handleInputValues}
+              className="home-page-input"
+            />
           </label>
           <label>
             Email:
-            <input type="text" name="email" value={this.state.email} onChange={this.handleInputValues} className="home-page-input"/>
+            <input
+              type="text"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleInputValues}
+              className="home-page-input"
+            />
           </label>
           <label>
             Password:
-            <input type="text" name="password" value={this.state.password} onChange={this.handleInputValues} className="home-page-input"/>
+            <input
+              type="text"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleInputValues}
+              className="home-page-input"
+            />
           </label>
         </form>
         <div className="button">
-          <Button onClick={this.handleSave} variant="contained" color="primary">
-            Save
-          </Button>
+          <GreenButton
+            buttonText="Save"
+            handleSubmit={this.handleSubmit}
+          />
         </div>
         <div>
           {this.props.signUpMessage}

@@ -5,26 +5,23 @@
   font-size: 12;
 }
 
-#business-list {
-  box-sizing: border-box;
-  border: solid;
-  float: left;
-  margin: 50px 20px;
-  padding-top: 0px;
-  width: 500px;
+#business-list .mid-components{
+  width: 600px;
+  margin: 0 3%;
+  margin-left: 30%;
+  border: none;
+  overflow: auto;
 }
- 
+
 #chatbox {
   box-sizing: border-box;
-  float: left;
-  height: 600px;
-  margin: 50px 20px;
+  height: 585px;
   width: 300px;
-  border: 1px solid #ddd;
+  border: 1px none rgb(77, 70, 70);
   box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
   border-radius: 2px;
-  max-width: 600px;
-} 
+  position: fixed;
+}
 
 #login {
   box-sizing: border-box;
@@ -36,11 +33,6 @@
   box-sizing: border-box;
   flex-shrink: 0;
   margin: 0 80px;
-}
-
-#logout {
-  box-sizing: border-box;
-
 }
 
 #main {
@@ -56,30 +48,25 @@
   box-sizing: border-box;
   border: none;
   text-align: center;
-  /* word-wrap: break-word; */
-  /* margin: 0 80px; */
 }
 
 #user-info {
   box-sizing: border-box;
-  border: solid;
-  float: left;
+  border: none;
   height: 500px;
-  margin: 50px 0;
-  margin-left: 40px;
-  margin-right: 20px;
   width: 300px;
+  position: fixed;
 }
 
 /* className */
 
 .business-entry {
   box-sizing: border-box;
-  border: solid;
   flex-direction: row;
-  margin: 50px 10px; 
+  margin: 20px 10px;
+  border-bottom: 2px solid rgb(31, 80, 16);
+  position: relative;
 }
-
 
 .business-image {
   box-sizing: border-box;
@@ -98,8 +85,8 @@
   display: inline-block;  
 }
 
-.clearfix {
-  overflow: auto;
+.friends-list {
+  height: 500px;
 }
 
 .home-page {
@@ -141,16 +128,22 @@
   display: block;
 }
 
-.mid-container {
-  box-sizing: border-box;
-  /* border: solid; */
+.mid-components {
+  float: left;
+  width: 350px;
+  margin: 0 15%;
+  border: 1px solid rgb(31, 80, 16);
 }
+/* 
+.middle-container {
+  display: grid;
+
+  grid-template-columns: repeat (12, 1fr);
+} */
 
 .nav {
   border: solid;
   box-sizing: border-box;
-  /* margin: 50px 70px; */
-  margin: 90%;
   flex-direction: row;
   text-align: center;
 }
@@ -162,10 +155,10 @@
   margin-left: 22px;
   overflow: auto;
 }
-
+/* 
 .force-overflow {
   min-height: 450px;
-}
+} */
 
 .inline {
   box-sizing: border-box;
@@ -175,21 +168,25 @@
 .button {
   margin: 20px;
 }
-/* 
-.chatroom-text-input {
-  height: 175px;
-  width: 250px;
-} */
 
-.search-bar {
+.search {
   flex-grow: 1;
   width: 100%;
+}
+
+.search-bar {
+  box-sizing: border-box;
+  width: 250px;
 }
 
 .top-container {
   box-sizing: border-box;
   border: solid;
   margin-bottom: 20px;
+}
+
+.user-component {
+  text-align: center;
 }
 
 /* element */
@@ -200,75 +197,49 @@ label {
 
 li {
   display: inline;
-  margin: 11%;
+  margin: 10%;
 }
 
 
 /* CHAT BOX*/
 
-h2{
+h2 {
   font-size: 18px;
   padding: 10px 20px;
-  color: #575ed8;
+  color: #357a38;
 }
-/* 
-#chat-box{
-  max-width: 600px;
-  margin: 50px 50px;
-  float:right;
-  border: 1px solid #ddd;
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
-  border-radius: 2px;
-} */
 
-#chat-window{
+#chat-window {
   height: 400px;
   overflow: auto;
   background: #f9f9f9;
   width: 99%;
+  margin-left: 1px;
 }
 
-#output p{
+#chat-send {
+  margin-left: 1px;
+}
+
+#output p {
   padding: 14px 0px;
   margin: 0 20px;
   border-bottom: 1px solid #e9e9e9;
   color: #555;
 }
 
-#feedback p{
-  color: #aaa;
-  padding: 14px 0px;
-  margin: 0 20px;
+#output strong {
+  color: #357a38;
 }
 
-#output strong{
-  color: #575ed8;
-}
-/* 
-label{
-  box-sizing: border-box;
-  display: block;
-  padding: 10px 20px;
-} */
-
-.chat-input{
+.chat-component {
   padding: 10px 20px;
   box-sizing: border-box;
   background: #eee;
   border: 0;
   display: block;
-  width: 100%;
-  background: #fff;
+  width: 99%;
   border-bottom: 1px solid #eee;
   font-size: 16px;
-}
-
-#chat-send{
-  background: #575ed8;
-  color: #fff;
-  font-size: 18px;
-  border: 0;
-  padding: 12px 0;
-  width: 100%;
-  border-radius: 0 0 2px 2px;
+  margin-left: 1px;
 }

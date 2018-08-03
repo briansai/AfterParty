@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
+import GreenButton from '../../materialUI/GreenButton.jsx';
 
 class Login extends React.Component {
   constructor(props) {
@@ -50,9 +50,7 @@ class Login extends React.Component {
           </label>
         </form>
         <div className="button">
-          <Button variant="contained" color="primary" onClick={this.handleSubmit}>
-            Login
-          </Button>
+          <GreenButton buttonText="Login" handleSubmit={this.handleSubmit}/>
         </div>
         <div className="login-message">
           {this.props.loginMessage}

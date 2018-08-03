@@ -12,8 +12,7 @@ db.once('open', () => {
   console.log('Something went wrong with the conenction')
 })
 
-const loginSchema = new mongoose.Schema({
-
+const userInfoSchema = new mongoose.Schema({
   firstName: {
     type: 'string',
     required: true
@@ -21,7 +20,12 @@ const loginSchema = new mongoose.Schema({
   lastName: {
     type: 'string',
     required: true
-  }, 
+  },
+  handle: {
+    type: 'string',
+    required: true,
+    unique: true
+  },
   email: {
     type: 'string',
     required: true,
@@ -30,11 +34,11 @@ const loginSchema = new mongoose.Schema({
   password: {
     type: 'string',
     required: true
-  }, 
+  },
   avatar: 'string',
   description: 'string',
 });
 
-const Login = mongoose.model('Login', loginSchema);
+const UserInfo = mongoose.model('UserInfo', userInfoSchema);
 
-module.exports = Login;
+module.exports = UserInfo;

@@ -61,6 +61,7 @@ class App extends React.Component {
         login: true,
         userInfo: response.data
       })
+      console.log(response);
     })
     .catch((error) => {
       if (error.code === 11000) {

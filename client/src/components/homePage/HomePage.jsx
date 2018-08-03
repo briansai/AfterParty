@@ -7,9 +7,6 @@ import PropTypes from 'prop-types';
 const HomePage = props => {
   return (
     <Fragment>
-      {/* <h2 className="home-page-title">
-        DM 
-      </h2> */}
       <div className="home-page-container">
         <span className="home-page-component" className="sign-up">
           <SignUp handleSignUp={props.handleSignUp} signUpMessage={props.signUpMessage} />

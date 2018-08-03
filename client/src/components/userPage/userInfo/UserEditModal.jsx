@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -7,13 +7,10 @@ import Button from '@material-ui/core/Button';
 import UserEdit from './UserEdit.jsx';
 
 function getModalStyle() {
-  const top = 50;
-  const left = 50;
-
   return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
   };
 }
 
@@ -51,11 +48,9 @@ class EditModal extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <Fragment>
         <Button onClick={this.handleOpen}>Edit</Button>
         <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
           open={this.state.open}
           onClose={this.handleClose}
         >
@@ -63,10 +58,9 @@ class EditModal extends React.Component {
             <Typography variant="subheading" id="modal-description">
               <UserEdit userInfo={this.props.userInfo}/>
             </Typography>
-            {/* <ModalWrapped /> */}
           </div>
         </Modal>
-      </div>
+      </Fragment>
     );
   }
 }
@@ -75,7 +69,6 @@ EditModal.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-// We need an intermediary variable for handling the recursive nesting.
-const ModalWrapped = withStyles(styles)(EditModal);
+const UserEditModal = withStyles(styles)(EditModal);
 
-export default ModalWrapped;
+export default UserEditModal;
